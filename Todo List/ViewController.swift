@@ -8,16 +8,51 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var tasks : [Task] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        tasks = createTask()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasks.count
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let task = tasks[indexPath.row]
+        if task.important {
+            cell.textLabel?.text = "! " + task.name
+        } else {
+            cell.textLabel?.text = task.name
+        }
+        return cell
+    }
+    
+    func createTask() -> [Task] {
+        let task1 = Task()
+        task1.name = "Walk the dog"
+        task1.important = false
+        
+        let task2 = Task()
+        task2.name = "Tidy Office"
+        task2.important = false
+        
+        let task3 = Task()
+        task3.name = "Pay Bill"
+        task3.important = true
+        
+        return [task1, task2, task3]
     }
 
 

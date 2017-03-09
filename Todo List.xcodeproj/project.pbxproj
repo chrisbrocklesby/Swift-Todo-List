@@ -13,6 +13,7 @@
 		833993631E71E80900C5508B /* Todo_List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 833993611E71E80900C5508B /* Todo_List.xcdatamodeld */; };
 		833993651E71E80900C5508B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833993641E71E80900C5508B /* Assets.xcassets */; };
 		833993681E71E80900C5508B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833993661E71E80900C5508B /* LaunchScreen.storyboard */; };
+		833993701E71ED2A00C5508B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8339936F1E71ED2A00C5508B /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		833993641E71E80900C5508B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		833993671E71E80900C5508B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		833993691E71E80900C5508B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8339936F1E71ED2A00C5508B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				8339935A1E71E80900C5508B /* AppDelegate.swift */,
 				8339935C1E71E80900C5508B /* ViewController.swift */,
 				8339935E1E71E80900C5508B /* Main.storyboard */,
+				8339936F1E71ED2A00C5508B /* Task.swift */,
 				833993641E71E80900C5508B /* Assets.xcassets */,
 				833993661E71E80900C5508B /* LaunchScreen.storyboard */,
 				833993691E71E80900C5508B /* Info.plist */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833993701E71ED2A00C5508B /* Task.swift in Sources */,
 				8339935D1E71E80900C5508B /* ViewController.swift in Sources */,
 				833993631E71E80900C5508B /* Todo_List.xcdatamodeld in Sources */,
 				8339935B1E71E80900C5508B /* AppDelegate.swift in Sources */,

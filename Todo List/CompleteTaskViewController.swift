@@ -1,35 +1,37 @@
-//
-//  CompleteTaskViewController.swift
-//  Todo List
-//
-//  Created by Chris Brocklesby on 12/03/2017.
-//  Copyright © 2017 Chris Brocklesby. All rights reserved.
-//
-
+///////// Imports //////////
 import UIKit
 
+///////// Complete Task View Controller - Class /////////
 class CompleteTaskViewController: UIViewController {
     
-    var previousVC = TasksViewController()
-    
+    //// Variables ////
     var task = Task()
     
+    //// Story Board Connections ////
     @IBOutlet weak var labelTask: UILabel!
+    
+    @IBAction func completeTapped(_ sender: Any) {
+        // Connect to CoreData (Database)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        // Delete data from CoreData (Database)
+        context.delete(task)
+        
+        // Save data to CoreData (Database)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        // Return to last View Controller
+        navigationController!.popViewController(animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if task.important {
-            labelTask.text = "! " + task.name
+            labelTask.text = "! " + task.name!
         } else {
             labelTask.text = task.name
         }
     }
-
-    @IBAction func completeTapped(_ sender: Any) {
-        previousVC.tasks.remove(at: previousVC.selectCellIndex)
-        previousVC.tableView.reloadData()
-        navigationController!.popViewController(animated: true)
-    }
-    
 }

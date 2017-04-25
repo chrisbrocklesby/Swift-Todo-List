@@ -1,33 +1,38 @@
-//
-//  TasksViewController.swift
-//  Todo List
-//
-//  Created by Chris Brocklesby on 09/03/2017.
-//  Copyright © 2017 Chris Brocklesby. All rights reserved.
-//
-
+///////// Imports //////////
 import UIKit
 
+///////// Tasks View Controller - Class /////////
 class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var tableView: UITableView!
+    //// Variables ////
+    var tasks : [Task] = []
     
-    var selectCellIndex = 0
+    //// Story Board Connections ///
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func plusTapped(_ sender: Any) {
         performSegue(withIdentifier: "addSegue", sender: nil)
     }
     
-    var tasks : [Task] = []
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tasks = createTask()
-        
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getTasks()
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectTaskSegue" {
+            let nextVC = segue.destination as! CompleteTaskViewController
+            nextVC.task = sender as! Task
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,9 +42,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let task = tasks[indexPath.row]
-        selectCellIndex = indexPath.row
         if task.important {
-            cell.textLabel?.text = "! " + task.name
+            cell.textLabel?.text = "! " + task.name!
         } else {
             cell.textLabel?.text = task.name
         }
@@ -52,37 +56,22 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    func createTask() -> [Task] {
-        let task1 = Task()
-        task1.name = "Walk the dog"
-        task1.important = false
+    func getTasks(){
+        // Connect to CoreData (Database)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let task2 = Task()
-        task2.name = "Tidy Office"
-        task2.important = false
-        
-        let task3 = Task()
-        task3.name = "Pay Bill"
-        task3.important = true
-        
-        return [task1, task2, task3]
+        do {
+            // Get data from CoreData (Database)
+            tasks = try context.fetch(Task.fetchRequest()) as! [Task]
+            print(tasks)
+        } catch {
+            // Error getting data from CoreData (Database)
+            print("We may have a error")
+        }
     }
     
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        if segue.identifier == "addSegue" {
-            let nextVC = segue.destination as! CreateTaskViewController
-            nextVC.previousVC = self
-        }
-        
-        if segue.identifier == "selectTaskSegue" {
-            let nextVC = segue.destination as! CompleteTaskViewController
-            nextVC.task = sender as! Task
-            nextVC.previousVC = self
-        }
-    }
+    
 
 
 }
-

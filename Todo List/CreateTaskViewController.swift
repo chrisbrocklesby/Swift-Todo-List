@@ -1,42 +1,32 @@
-//
-//  CreateTaskViewController.swift
-//  Todo List
-//
-//  Created by Chris Brocklesby on 12/03/2017.
-//  Copyright © 2017 Chris Brocklesby. All rights reserved.
-//
-
+///////// Imports //////////
 import UIKit
 
+///////// Create Task View Controller - Class /////////
 class CreateTaskViewController: UIViewController {
 
+    ///////// Story Board Connections /////////
     @IBOutlet weak var taskNameTextField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
     
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
     @IBAction func addTapped(_ sender: Any) {
-
-        // Create Task for Outlet Input
-        
+        // Connect to CoreData (Database) //
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        // Get Field Data for CoreData (Database) //
         let task = Task(context: context)
         task.name = taskNameTextField.text!
         task.important = importantSwitch.isOn
+        
+        // Save data to CoreData (Database) //
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
-        // Pop Back
-
+        // Return to last View Controller //
         navigationController!.popViewController(animated: true)
-        
     }
-
+    
+    ///////// View Load /////////
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
 }

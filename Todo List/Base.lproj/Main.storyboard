@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gvn-1Y-bxK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gvn-1Y-bxK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,33 +67,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXT-M2-hzn">
-                                <rect key="frame" x="166" y="129" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shl-EE-9oM">
-                                <rect key="frame" x="134" y="188" width="102" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shl-EE-9oM">
+                                <rect key="frame" x="126.5" y="294" width="102" height="30"/>
                                 <state key="normal" title="Complete Task"/>
                                 <connections>
                                     <action selector="completeTapped:" destination="S5f-tV-q8o" eventType="touchUpInside" id="ZxR-iz-8lz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S0B-1h-eG6">
+                                <rect key="frame" x="142" y="190" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWA-CA-xDR">
+                                <rect key="frame" x="152" y="373" width="51" height="30"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateTapped:" destination="S5f-tV-q8o" eventType="touchUpInside" id="21X-ct-C50"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6wC-VB-mKI">
+                                <rect key="frame" x="166" y="228" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iXT-M2-hzn" firstAttribute="top" secondItem="ez3-K7-zbl" secondAttribute="bottom" constant="65" id="U2e-9B-cUr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iXT-M2-hzn" secondAttribute="trailing" id="XHD-uj-H7m"/>
-                            <constraint firstItem="Shl-EE-9oM" firstAttribute="leading" secondItem="FZZ-Cb-8TE" secondAttribute="leadingMargin" id="d8q-0J-Fu3"/>
-                            <constraint firstItem="Shl-EE-9oM" firstAttribute="top" secondItem="iXT-M2-hzn" secondAttribute="bottom" constant="38" id="gYL-HN-r61"/>
-                            <constraint firstItem="iXT-M2-hzn" firstAttribute="leading" secondItem="FZZ-Cb-8TE" secondAttribute="leadingMargin" id="oq9-pB-MMu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Shl-EE-9oM" secondAttribute="trailing" id="yF7-YX-t3T"/>
-                            <constraint firstItem="Shl-EE-9oM" firstAttribute="top" secondItem="iXT-M2-hzn" secondAttribute="bottom" constant="38" id="zjL-ZZ-aXL"/>
+                            <constraint firstItem="Shl-EE-9oM" firstAttribute="centerX" secondItem="FZZ-Cb-8TE" secondAttribute="centerX" constant="-10" id="883-bX-3We"/>
+                            <constraint firstItem="Shl-EE-9oM" firstAttribute="centerY" secondItem="FZZ-Cb-8TE" secondAttribute="centerY" constant="-24.5" id="CPx-jc-k9g"/>
+                            <constraint firstItem="pWA-CA-xDR" firstAttribute="centerX" secondItem="FZZ-Cb-8TE" secondAttribute="centerX" constant="-10" id="OG5-wV-KIM"/>
+                            <constraint firstItem="pWA-CA-xDR" firstAttribute="centerY" secondItem="FZZ-Cb-8TE" secondAttribute="centerY" constant="54.5" id="X3d-xj-f9F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pWA-CA-xDR" secondAttribute="trailing" constant="156" id="byN-fh-fVZ"/>
+                            <constraint firstItem="pWA-CA-xDR" firstAttribute="leading" secondItem="FZZ-Cb-8TE" secondAttribute="leadingMargin" constant="136" id="f7A-Uh-7UP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="labelTask" destination="iXT-M2-hzn" id="0fS-Wx-icR"/>
+                        <outlet property="fieldSwitch" destination="6wC-VB-mKI" id="x8i-C7-nYx"/>
+                        <outlet property="fieldTask" destination="S0B-1h-eG6" id="R8o-6w-OKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACZ-aK-iCu" userLabel="First Responder" sceneMemberID="firstResponder"/>

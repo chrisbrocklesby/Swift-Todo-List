@@ -57,6 +57,26 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         performSegue(withIdentifier: "selectTaskSegue", sender: task)
     }
     
+    ///////// Table View - Slide to Delete /////////
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        if editingStyle == .delete {
+            let task = tasks[indexPath.row]
+            context.delete(task)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            do {
+                tasks = try context.fetch(Task.fetchRequest())
+            }
+            catch {
+                print("Fetching Failed")
+            }
+        }
+        tableView.reloadData()
+    }
+    
     ///////// Get Task Function /////////
     func getTasks(){
         // Connect to CoreData (Database) //

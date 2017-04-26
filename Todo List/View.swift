@@ -8,7 +8,20 @@ class CompleteTaskViewController: UIViewController {
     var task = Task()
 
     ///////// Story Board Connections /////////
-    @IBOutlet weak var labelTask: UILabel!
+    @IBOutlet weak var fieldTask: UITextField!
+    
+    @IBOutlet weak var fieldSwitch: UISwitch!
+    
+    @IBAction func updateTapped(_ sender: Any) {
+        // Fields to update //
+        task.name = fieldTask.text
+        
+        // Save data to CoreData (Database) //
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        // Return to last View Controller //
+        navigationController!.popViewController(animated: true)
+    }
     
     @IBAction func completeTapped(_ sender: Any) {
         // Connect to CoreData (Database) //
@@ -28,11 +41,7 @@ class CompleteTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if task.important {
-            labelTask.text = "! " + task.name!
-        } else {
-            labelTask.text = task.name
-        }
+        fieldTask.text = task.name
     }
     
 }

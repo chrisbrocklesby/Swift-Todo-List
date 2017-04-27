@@ -43,11 +43,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let task = tasks[indexPath.row]
-        if task.important {
-            cell.textLabel?.text = "! " + task.name!
-        } else {
-            cell.textLabel?.text = task.name
-        }
+        if task.important { cell.textLabel?.text = "! " + task.name! }
+        else { cell.textLabel?.text = task.name }
         return cell
     }
     

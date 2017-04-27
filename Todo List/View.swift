@@ -9,12 +9,13 @@ class CompleteTaskViewController: UIViewController {
 
     ///////// Story Board Connections /////////
     @IBOutlet weak var fieldTask: UITextField!
-    
     @IBOutlet weak var fieldSwitch: UISwitch!
     
     @IBAction func updateTapped(_ sender: Any) {
         // Fields to update //
         task.name = fieldTask.text
+        if fieldSwitch.isOn { task.important = true }
+        else { task.important = false }
         
         // Save data to CoreData (Database) //
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -41,7 +42,10 @@ class CompleteTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set field value data //
         fieldTask.text = task.name
+        if task.important == true { fieldSwitch.setOn(true, animated: true) }
+        else { fieldSwitch.setOn(false, animated: true) }
     }
     
 }

@@ -188,8 +188,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="importantSwitch" destination="r3G-uT-KCV" id="8N4-kz-UxH"/>
-                        <outlet property="taskNameTextField" destination="2GL-ng-sWg" id="O5A-K1-S4z"/>
+                        <outlet property="fieldSwitch" destination="r3G-uT-KCV" id="s5C-ya-TgZ"/>
+                        <outlet property="fieldTask" destination="2GL-ng-sWg" id="Aen-lD-cZs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aW-Pe-c2b" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -5,8 +5,8 @@ import UIKit
 class CreateTaskViewController: UIViewController {
 
     ///////// Story Board Connections /////////
-    @IBOutlet weak var taskNameTextField: UITextField!
-    @IBOutlet weak var importantSwitch: UISwitch!
+    @IBOutlet weak var fieldTask: UITextField!
+    @IBOutlet weak var fieldSwitch: UISwitch!
     
     @IBAction func addTapped(_ sender: Any) {
         // Connect to CoreData (Database) //
@@ -14,8 +14,8 @@ class CreateTaskViewController: UIViewController {
         
         // Get Field Data for CoreData (Database) //
         let task = Task(context: context)
-        task.name = taskNameTextField.text!
-        task.important = importantSwitch.isOn
+        task.name = fieldTask.text!
+        task.important = fieldSwitch.isOn
         
         // Save data to CoreData (Database) //
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
